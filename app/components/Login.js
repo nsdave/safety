@@ -37,6 +37,12 @@ const Login = ({ navigation }) => {
         <Text 
         onPress={() => navigation.navigate('sign')}
         style={styles.dont} >Don't have an account? Sign Up</Text>
+        <Text
+        onPress={() => navigation.navigate('logadmin')}
+        style={styles.admintxt}
+        >
+          Admin login
+        </Text>
       </View>
     </SafeAreaView>
   )
@@ -80,5 +86,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 16
+  },
+  admintxt: {
+    marginTop: '8.5%',
+    textAlign: 'center',
+    fontWeight: '500',
+    fontSize: 16,
+    color: 'gray'
   }
 })

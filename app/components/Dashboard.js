@@ -1,10 +1,13 @@
-import { Pressable, StyleSheet, Text, TouchableOpacity, View, ImageBackground, ScrollView } from 'react-native'
-import React from 'react'
+import { Pressable, StyleSheet, Text, TouchableOpacity, View, Modal, ScrollView, ActivityIndicator } from 'react-native'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Entypo, Ionicons } from '@expo/vector-icons'
 import Bottle from './Bottle'
 
 const Dashboard = ({ navigation }) => {
+    const [active, setActive] = useState(false)
+    const [change, setChange] = useState(false)
+
   return (
     <SafeAreaView style={{ flex: 1 }} >
         <ScrollView 
@@ -58,15 +61,54 @@ const Dashboard = ({ navigation }) => {
                     <TouchableOpacity
                     style={styles.share}
                     activeOpacity={0.6}
+                    onPress={() => {
+                        setActive((prev) => !prev);
+                        setTimeout(() => setChange(true), 2400)
+                    }}
                     >
                         <Entypo name='location' size={36} color={'black'} />
-                        {/* <MaterialIcons name='location-history' size={36} color={'white'} /> */}
                     </TouchableOpacity>
                     <Text style={styles.sharetxt} >Share Location</Text>
                 </View>
             </View>
 
             <Text style={styles.lasttxt} >Stay Safe</Text>
+
+            <Modal
+            transparent
+            visible={active}
+            animationType='fade'
+            >
+                <Pressable
+                onPress={() => {
+                    setActive(false);
+                    setChange(false)
+                }}
+                style={{ flex: 1, justifyContent: 'center' }}
+                >
+                    <Pressable
+                    onPress={() => setActive(true)}
+                    >
+                        <View
+                        style={styles.hover}
+                        >
+                            {
+                                change
+                                ?
+                                <Text
+                                style={styles.hovertxt}
+                                >Your location has been shared </Text>
+                                :
+                                <ActivityIndicator 
+                                size={'large'}
+                                color={'#111'}
+                                />
+                            }
+                        </View>
+                    </Pressable>
+                </Pressable>
+            </Modal>
+
         </ScrollView>
     </SafeAreaView>
   )
@@ -153,5 +195,20 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         color: 'gray',
         textAlign: 'center'
-    }
+    },
+    hover: {
+        width: '80%',
+        height: '36%',
+        marginTop: '12%',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        borderRadius: 20,
+        paddingHorizontal: 30,
+        backgroundColor: 'whitesmoke'
+    },
+    hovertxt: {
+        textAlign: 'center',
+        fontSize: 16, 
+        fontWeight: '500'
+    },
 })

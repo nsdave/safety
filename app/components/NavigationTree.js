@@ -5,6 +5,8 @@ import Dashboard from './Dashboard'
 import Login from './Login'
 import SignUp from './SignUp'
 import Detailed from './Detailed'
+import LoginAdmin from './LoginAdmin'
+import AdminHome from './AdminHome'
 
 const Stack = createNativeStackNavigator()
 
@@ -18,7 +20,10 @@ const NavigationTree = () => {
         <Stack.Screen name='login' component={Login} />
         <Stack.Screen name='dash' component={Dashboard} />
         <Stack.Screen name='sign' component={SignUp} />
-        <Stack.Screen name='detail' component={Detailed} options={{ headerShown: true, headerTitle: '' }} />
+        <Stack.Screen name='logadmin' component={LoginAdmin} />
+        <Stack.Screen name='admin' component={AdminHome} />
+        <Stack.Screen name='detail' component={Detailed} 
+        options={{ headerShown: true, headerTitle: '' }} />
     </Stack.Navigator>
   )
 }
