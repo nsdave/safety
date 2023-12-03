@@ -47,6 +47,10 @@ const SignUp = ({ navigation }) => {
             place={'Enter your matric number'}
             />
             <InputBody 
+            title={'Emergency contact'}
+            place={'Emergency contact phone number'}
+            />
+            <InputBody 
             title={'Password'}
             place={'Enter your password'}
             entry={true}

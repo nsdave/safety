@@ -97,7 +97,7 @@ const Dashboard = ({ navigation }) => {
                                 ?
                                 <Text
                                 style={styles.hovertxt}
-                                >Your location has been shared </Text>
+                                >Your location has been shared with your emergency contact</Text>
                                 :
                                 <ActivityIndicator 
                                 size={'large'}
