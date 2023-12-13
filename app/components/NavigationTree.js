@@ -7,6 +7,7 @@ import SignUp from './SignUp'
 import Detailed from './Detailed'
 import LoginAdmin from './LoginAdmin'
 import AdminHome from './AdminHome'
+import RecentNews from './RecentNews'
 
 const Stack = createNativeStackNavigator()
 
@@ -24,6 +25,9 @@ const NavigationTree = () => {
         <Stack.Screen name='admin' component={AdminHome} />
         <Stack.Screen name='detail' component={Detailed} 
         options={{ headerShown: true, headerTitle: '' }} />
+        <Stack.Screen name='news' component={RecentNews}
+        options={{ headerShown: true, title: '' }} 
+        />
     </Stack.Navigator>
   )
 }

@@ -1,8 +1,9 @@
-import { Pressable, StyleSheet, Text, TouchableOpacity, View, Modal, ScrollView, ActivityIndicator } from 'react-native'
+import { Pressable, StyleSheet, Text, TouchableOpacity, View, Modal, ScrollView, ActivityIndicator, Image } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Entypo, Ionicons } from '@expo/vector-icons'
 import Bottle from './Bottle'
+import poke from '../images/waa.jpg'
 
 const Dashboard = ({ navigation }) => {
     const [active, setActive] = useState(false)
@@ -15,15 +16,19 @@ const Dashboard = ({ navigation }) => {
         style={styles.case} 
         >
             <View style={styles.top} >
-                <Text style={styles.toptxt} >Hello, Alex</Text>
+                <Text style={styles.toptxt} >Hello, julius</Text>
                 <Pressable onPress={() => navigation.goBack()} >
-                    <Ionicons name='person' size={28} color={'black'} />
+                    <Image source={poke} style={{ width: 33, height: 33, borderRadius: 40 }} />
+                    {/* <Ionicons name='person' size={28} color={'black'} /> */}
                 </Pressable>
             </View>
 
             <Text style={styles.dashtxt} >Dashboard</Text>
 
-            <Pressable style={styles.recent} >
+            <Pressable 
+            onPress={() => navigation.navigate('news')}
+            style={styles.recent} 
+            >
                 <View style={styles.recenttxtcase} >
                     <Text 
                     style={styles.recenttxt} 
